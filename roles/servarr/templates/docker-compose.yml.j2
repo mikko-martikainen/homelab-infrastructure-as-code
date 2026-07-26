@@ -8,6 +8,7 @@ services:
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ servarr_service_user_gid }}"
+      - UMASK=002
       - TZ=Europe/Helsinki
     volumes:
       - "{{ servarr_home_directory }}/prowlarr/config:/config"
@@ -27,6 +28,7 @@ services:
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ media_group_gid }}"
+      - UMASK=002
       - TZ=Europe/Helsinki
     volumes:
       - "{{ servarr_home_directory }}/radarr/config:/config"
@@ -48,6 +50,7 @@ services:
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ media_group_gid }}"
+      - UMASK=002
       - TZ=Europe/Helsinki
     volumes:
       - "{{ servarr_home_directory }}/sonarr/config:/config"
