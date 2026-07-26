@@ -6,9 +6,6 @@
     - role: system
       tags:
         - system
-    - role: common
-      tags:
-        - common
     - role: dropbear
       tags:
         - dropbear
