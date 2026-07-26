@@ -20,7 +20,9 @@
     - name: Add service user for NextCloud
       user:
         name: "{{ nextcloud_service_user }}"
-        groups: "{{ service_group }}"
+        groups:
+        - "{{ service_group }}"
+        - "{{ media_group }}"
         state: present
 
     - name: Copy docker compose file
