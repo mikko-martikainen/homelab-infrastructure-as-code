@@ -14,7 +14,7 @@
 
 - name: Extract container IP address
   set_fact:
-    reverse_proxy_ip: "{{ container_info.container.NetworkSettings.Networks.proxy.IPAddress }}"
+    reverse_proxy_ip: "{{ container_info.container.NetworkSettings.Networks.traefik.IPAddress }}"
 
 - block:
     - name: Add service user for NextCloud

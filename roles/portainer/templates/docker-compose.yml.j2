@@ -9,7 +9,7 @@ services:
       - "{{ portainer_home_directory }}/data:/data"
       - "/var/run/docker.sock:/var/run/docker.sock"
     networks:
-      - "proxy"
+      - traefik
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.portainer.rule=Host(`portainer.{{ domain_name }}`)"
@@ -20,6 +20,6 @@ services:
     restart: "unless-stopped"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true

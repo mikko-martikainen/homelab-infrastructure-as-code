@@ -4,7 +4,7 @@ services:
     container_name: prowlarr
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ servarr_service_user_gid }}"
@@ -24,7 +24,7 @@ services:
     image: lscr.io/linuxserver/radarr:latest
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ media_group_gid }}"
@@ -46,7 +46,7 @@ services:
     image: lscr.io/linuxserver/sonarr:latest
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ media_group_gid }}"
@@ -68,7 +68,7 @@ services:
     image: lscr.io/linuxserver/bazarr:latest
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     environment:
       - "PUID={{ servarr_service_user_uid }}"
       - "PGID={{ media_group_gid }}"
@@ -85,6 +85,6 @@ services:
       - "traefik.http.services.bazarr.loadbalancer.server.port=6767"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true

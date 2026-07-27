@@ -5,7 +5,7 @@ services:
     user: "{{ jellyfin_service_user_uid }}:{{ media_group_gid }}"
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     # Needed for VAAPI hardware acceleration
     devices:
       - /dev/dri:/dev/dri
@@ -28,9 +28,9 @@ services:
       # Optional: WebSocket / streaming stability
       - "traefik.http.middlewares.jellyfin-headers.headers.customrequestheaders.X-Forwarded-Proto=https"
       - "traefik.http.routers.jellyfin.middlewares=jellyfin-headers"
-      - "traefik.docker.network=proxy"
+      - "traefik.docker.network=traefik"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true

@@ -4,6 +4,9 @@ ansible_user: remote-user
 # Users
 server_remote_user: remote-user
 
+# Network
+router_ip_address: 192.168.1.1
+
 # Server
 homelab_ip_address: 192.168.1.10
 

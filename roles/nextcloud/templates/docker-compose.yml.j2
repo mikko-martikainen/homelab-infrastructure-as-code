@@ -5,8 +5,8 @@ services:
     container_name: nextcloud
     restart: unless-stopped
     networks:
-      - nextcloud-internal
-      - proxy
+      - nextcloud
+      - traefik
     environment:
       - "POSTGRES_HOST=nextcloud-database"
       - "POSTGRES_DB=nextcloud"
@@ -43,7 +43,7 @@ services:
     container_name: nextcloud-database
     restart: unless-stopped
     networks:
-      - nextcloud-internal
+      - nextcloud
     environment:
       - "POSTGRES_DB=nextcloud"
       - "POSTGRES_USER=nextcloud"
@@ -52,8 +52,8 @@ services:
       - "{{ nextcloud_home_directory }}/postgres:/var/lib/postgresql/data"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true
-  nextcloud-internal:
-    name: nextcloud-internal
+  nextcloud:
+    name: nextcloud

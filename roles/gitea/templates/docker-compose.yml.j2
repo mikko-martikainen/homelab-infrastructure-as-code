@@ -6,7 +6,7 @@ services:
     restart: unless-stopped
     networks:
       - gitea
-      - proxy
+      - traefik
     ports:
       - 2222:22
     environment:
@@ -45,8 +45,8 @@ services:
       - "{{ gitea_home_directory }}/postgres:/var/lib/postgresql/data"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true
   gitea:
     name: gitea

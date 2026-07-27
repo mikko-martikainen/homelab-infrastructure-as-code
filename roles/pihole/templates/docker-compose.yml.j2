@@ -4,7 +4,7 @@ services:
     image: pihole/pihole:latest
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     ports:
       - "53:53/tcp"
       - "53:53/udp"
@@ -25,6 +25,6 @@ services:
       - "traefik.http.services.pihole.loadbalancer.server.port=80"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true

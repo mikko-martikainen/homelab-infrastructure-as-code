@@ -9,7 +9,7 @@ services:
     security_opt:
       - "no-new-privileges:true"
     networks:
-      - "proxy"
+      - traefik
     ports:
       - "80:80"
       - "443:443"
@@ -36,5 +36,5 @@ services:
       - "traefik.http.middlewares.basic-auth.basicauth.users={{ traefik_admin_basic_auth_credentials }}"
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik

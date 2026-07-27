@@ -20,7 +20,7 @@ services:
       - 6881:6881/udp # torrent UDP
     restart: unless-stopped
     networks:
-      - proxy
+      - traefik
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.qbittorrent.rule=Host(`torrents.{{ domain_name }}`)"
@@ -46,6 +46,6 @@ services:
     restart: unless-stopped
 
 networks:
-  proxy:
-    name: proxy
+  traefik:
+    name: traefik
     external: true
