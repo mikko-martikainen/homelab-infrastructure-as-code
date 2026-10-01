@@ -1,7 +1,7 @@
 services:
   # NextCloud service
   nextcloud:
-    image: nextcloud:latest
+    image: nextcloud:34-apache
     container_name: nextcloud
     restart: unless-stopped
     networks:
@@ -25,9 +25,9 @@ services:
       - "{{ media_directory }}/music:/media/music"
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
       - "traefik.http.routers.nextcloud.rule=Host(`next.{{ domain_name }}`)"
       - "traefik.http.routers.nextcloud.entrypoints=websecure"
-      - "traefik.http.routers.nextcloud.tls=true"
       - "traefik.http.services.nextcloud.loadbalancer.server.port=80"
       # Headers
       - "traefik.http.middlewares.nextcloud-headers.headers.stsSeconds=15552000"

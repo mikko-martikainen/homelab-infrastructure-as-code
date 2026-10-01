@@ -11,9 +11,6 @@ entryPoints:
           scheme: https
   websecure:
     address: ":443"
-    http:
-      tls:
-        certResolver: cloudflare
 
 serversTransport:
   insecureSkipVerify: true
@@ -24,15 +21,3 @@ providers:
     exposedByDefault: false
     network: traefik
     watch: true
-
-certificatesResolvers:
-  cloudflare:
-    acme:
-      email: {{ cf_dns_email }}
-      storage: /letsencrypt/acme.json
-      dnsChallenge:
-        provider: cloudflare
-        resolvers:
-{% for resolver in traefik_acme_dns_resolvers %}
-          - "{{ resolver }}"
-{% endfor %}

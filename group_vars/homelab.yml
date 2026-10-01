@@ -43,6 +43,9 @@ pihole_dns_servers: 9.9.9.9;149.112.112.112
 
 # Traefik
 traefik_admin_user: admin
+traefik_acme_dns_resolvers:
+  - "1.1.1.1:53"
+  - "1.0.0.1:53"
 
 # Portainer
 portainer_admin_user: admin

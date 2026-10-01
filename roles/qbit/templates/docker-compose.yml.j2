@@ -25,7 +25,6 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.qbittorrent.rule=Host(`torrents.{{ domain_name }}`)"
       - "traefik.http.routers.qbittorrent.entrypoints=websecure"
-      - "traefik.http.routers.qbittorrent.tls=true"
       - "traefik.http.services.qbittorrent.loadbalancer.server.port=8080"
 
   qbittorrent:

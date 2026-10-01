@@ -83,7 +83,16 @@
       owner: "{{ traefik_service_user }}"
       group: "{{ traefik_service_user }}"
       mode: '0600'
-    when: use_self_signed_certificates
+    when: not use_self_signed_certificates
+
+  - name: Copy traefik config file for self signed certificates
+    template:
+      src: ../templates/traefik_self_signed.yml.j2
+      dest: "{{ traefik_config_file_path }}"
+      owner: "{{ traefik_service_user }}"
+      group: "{{ traefik_service_user }}"
+      mode: '0600'
+    when: not use_self_signed_certificates
 
   - name: Copy traefik ssl-config file
     template:

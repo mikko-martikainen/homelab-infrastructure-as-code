@@ -26,9 +26,8 @@ services:
       - "traefik.http.routers.traefik-dashboard.rule=Host(`traefik.{{ domain_name }}`)"
       - "traefik.http.routers.traefik-dashboard.entrypoints=websecure"
       - "traefik.http.routers.traefik-dashboard.tls=true"
-      - "traefik.http.routers.traefik-dashboard.tls.domains[0].main={{ domain_name }}"
-      - "traefik.http.routers.traefik-dashboard.tls.domains[0].sans=*.{{ domain_name }}"
       - "traefik.http.routers.traefik-dashboard.tls.certresolver=cloudflare"
+      - "traefik.http.routers.traefik-dashboard.tls.domains[0].main={{ domain_name }}"
       - "traefik.http.routers.traefik-dashboard.service=api@internal"
       - "traefik.http.routers.traefik-dashboard.middlewares=basic-auth"
 
