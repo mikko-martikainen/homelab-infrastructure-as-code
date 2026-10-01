@@ -27,6 +27,9 @@
     - role: gitea
       tags:
         - gitea
+    - role: homeassistant
+      tags:
+        - homeassistant
     - role: jellyfin
       tags:
         - jellyfin
