@@ -42,8 +42,6 @@ The playbook supports two domain/SSL configurations:
 - **Pi-hole** – DNS server for managing custom domains and ad-blocking
 - **Dropbear** – Remote unlocking of server disk encryption
 - **Jellyfin** - Media server used to stream content to clients
-- **qBittorrent** - qBittorrent client for downloading Linux iso's
-- **Servarr** - Multiple Servarr services, including Radarr, Sonarr, Prowlarr, Bazarr
 
 After deployment, the services can be accessed through the following domains (when using home.arpa as the main domain):
 
@@ -52,12 +50,7 @@ After deployment, the services can be accessed through the following domains (wh
 - **Nextcloud:** `next.home.arpa`
 - **Gitea:** `gitea.home.arpa`
 - **Pi-hole:** `pihole.home.arpa`
-- **qBit:** `qbit.home.arpa`
 - **Jellyfin:** `jellyfin.home.arpa`
-- **Radarr:** `movies.home.arpa`
-- **Sonarr:** `tv.home.arpa`
-- **Bazarr:** `subtitles.home.arpa`
-- **Prowlarr:** `indexer.home.arpa`
 
 ### Infrastructure diagram
 

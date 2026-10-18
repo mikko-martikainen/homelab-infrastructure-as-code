@@ -33,12 +33,6 @@
     - role: jellyfin
       tags:
         - jellyfin
-    - role: qbit
-      tags:
-        - qbit
-    - role: servarr
-      tags:
-        - servarr
     - role: cleanup
       tags:
         - cleanup
